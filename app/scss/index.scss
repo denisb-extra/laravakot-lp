@@ -19,9 +19,9 @@ header {
 	position: fixed;
 	left: 10px;
 	bottom: 10px;
-	z-index: 9;
+	z-index: 199;
 	cursor: pointer;
-	
+	display: none;
 	@media only screen and (max-width : 1450px) {
 		img {
 			width: 65px;
@@ -49,6 +49,7 @@ header {
 	}
 }
 
+
 /* ---------------------- Section top ---------------------- */
 section.top {
 	height: 755px;
@@ -56,7 +57,7 @@ section.top {
 	background-color: #fff;
 	background-repeat: no-repeat;
 	background-position: top center;
-	overflow: visible;
+	overflow: hidden;
 	.animations {
 		position: absolute;
 		top: 0;
@@ -157,7 +158,7 @@ section.top {
 		border-left: none;
 		border-radius: 0px 20px 20px 0px;
 		display: inline-block;
-		margin-top: 110px;
+		margin-top: 50px;
 		padding-left: 170px;
 		position: relative;
 		&:after {
@@ -972,3 +973,163 @@ footer {
 	}
 }
 /* --------------------- /footer ---------------------- */
+
+
+/* ---------------------- Section floating-bottom-strip ---------------------- */
+
+@keyframes blink-arrow {
+	0% {
+    	opacity: 0;
+	}
+	50% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+
+
+
+section.floating-bottom-strip {
+
+	padding: 25px 0;
+	background-color: #fddcf1;
+	
+	background-position: top center;
+	background-repeat: no-repeat;
+	overflow: hidden;
+	position: relative;
+	font-size: 0;
+	position: fixed;
+	z-index: 99;
+	bottom: 0;
+	overflow: visible;
+
+	.decor-top {
+		position: absolute;
+		right: 0;
+		left: 0;
+		top: -30px;
+
+		img {
+			position: absolute;
+			top: 0;
+			left: 50%;
+			transform: translateX(-50%);
+		}
+	}
+	.decor-bottom {
+		position: absolute;
+		right: 0;
+		bottom: 0;
+	}
+	.section-inner {
+		position: relative;
+		max-width: 55%;
+		.arrows {
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			right: 100%;
+			white-space: nowrap;
+			.r1 {
+				
+				animation: blink-arrow 2s infinite linear;
+			}
+			.r2 {
+				opacity: 0;
+				animation: blink-arrow 2s infinite linear;
+				animation-delay: 1s;
+			}
+		}
+
+		.arrows-right {
+			right: auto;
+			left: 100%;
+			transform: scaleX(-1) translateY(-50%);
+		}
+	}
+	.decor-right {
+		position: absolute;
+		bottom: 0px;
+		right: 0px;
+	}
+	.decor-left {
+		position: absolute;
+		top: 0px;
+		left: 0px;
+	}
+
+	.part-top {
+		text-align: center;
+		.title {
+			@include f-b;
+			font-size: 36px;
+			line-height: 36px;
+			color: #872d8d;
+
+			a {
+				font-size: 36px;
+				color: #b93080;
+				white-space: nowrap;
+			}
+		}
+		.subtitle {
+			@include f-b;
+			font-size: 24px;
+			line-height: 36px;
+			color: #b93080;
+			margin-top: 15px;
+			a {
+				font-size: 36px;
+				color: #872d8d;
+				text-decoration: underline;
+				cursor: pointer;
+			}
+		}
+		.tel {
+			@include f-b;
+			font-size: 30px;
+			color: #b93080;
+		}
+	}
+
+	@media only screen and (max-width : 1000px) {
+		padding: 10px 0;
+		.decor-right {
+			img {
+				width: 50px;
+			}
+		}
+		.decor-left {
+			img {
+				width: 50px;
+			}
+		}
+		 .part-top {
+			.title, .subtitle {
+				font-size: 18px;
+				line-height: 18px;
+				a {
+					font-size: 18px;
+				}
+			}
+
+			.subtitle {
+				margin-top: 5px;
+			}
+		}
+
+		.section-inner {
+			max-width: 100%;
+			.arrows {
+				img {
+					width: 30px;
+				}
+			}
+		}
+	}
+}
+
+/* ---------------------- /Section floating-bottom-strip ---------------------- */

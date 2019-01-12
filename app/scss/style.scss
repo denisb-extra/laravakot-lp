@@ -59,6 +59,10 @@ body {
 	margin: 0;
   	padding: 0;
   	@include f-r;
+  	padding-bottom: 140px;
+  	@media only screen and (max-width : 1000px) {
+  		 padding-bottom: 50px;
+  	}
 }
 
 a {
